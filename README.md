@@ -1,13 +1,17 @@
 # FantAsta 
 ---
-### FantAsta è un sito esegubile in locale che utilizza il router di casa come server per gestire tutte le richeste dei vari client connessi
+## FantAsta è un script esegubile in locale che utilizza il router di casa come server per gestire tutte le richeste dei vari client connessi 
+---
+***Vi basterà un solo cmputer ( per avviare il server in locale ) e che tutti gli altri partecipanti compreso chi avvia lo script siano conessi alla stessa rete WiFi.  
+Gli altri partecipanti non devono per forza utilizzare un computer ma basta anche un cellulare con un motore di ricerca : ( google chrome , safari , firefox ...)***
 
 Dopo aver scaricato Python sul proprio computer ( link per scaricarlo  : https://www.python.org/downloads/ ) vi basterà installare la libreria flask direttamente dal vostro terminale ( comando :  `python3 -m pip install flask` )
 
-Una volta installato il tutto vi basterà entrare nel  percorso della cartella `Asta_edit` direttamente dal  vostro terminale o IDE preferito , ed un avolta fatto ciò tramite il comando `python3 app.py` si avvierà il sito ( del server )
+Una volta installato il tutto vi basterà entrare nel  percorso della cartella `Asta_edit` direttamente dal  vostro terminale o IDE preferito , ed un avolta fatto ciò tramite il comando `python3 app.py` si avvierà il sito ( del server ) .
 
-In  questo nuovo contesto vi si aprirà una pagina web che permetterà al battitore dell'asta di modificare alcuni parametri : elimnare partecipanti o eventualmente avviare un nuovo timer. 
+In  questo nuovo contesto vi si aprirà una pagina web che permetterà solo al battitore dell'asta di modificare alcuni parametri : elimnare partecipanti o eventualmente avviare un nuovo timer. 
 
-P.s. nella pagina che si aprirà in automatico verrà mostrato il sito ( indirizzo IP ) al quale tutti gli altri parteipanti dovranno connetersi per poter partecipare . 
+N.B. Nella pagina che si aprirà in automatico verrà mostrato indirizzo ip  ( che non è lo stesso della pagina  ) al quale tutti gli altri parteipanti dovranno connetersi per poter partecipare . Tutti i partecipanti compreso chi avvia lo script ( quindi il server ) dovranno essere connessi alla stessa rete wifi .
+
 
 Buona Asta a tutti !
