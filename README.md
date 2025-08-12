@@ -9,3 +9,5 @@ Una volta installato il tutto vi basterà entrare nel  percorso della cartella `
 In  questo nuovo contesto vi si aprirà una pagina web che permetterà al battitore dell'asta di modificare alcuni parametri : elimnare partecipanti o eventualmente avviare un nuovo timer. 
 
 P.s. nella pagina che si aprirà in automatico verrà mostrato il sito ( indirizzo IP ) al quale tutti gli altri parteipanti dovranno connetersi per poter partecipare . 
+
+Buona Asta a tutti !
