@@ -1,0 +1,168 @@
+/* Stile di base per la pagina */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Timer e crediti */
+#timer {
+    font-size: 28px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+#crediti {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Contenitore bottoni */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Bottoni uniformi */
+.btn {
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 150px;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+/* Colori specifici (ma stile uniforme) */
+.btn-offerta {
+    background-color: #f44336;
+}
+
+.btn-rilancia {
+    background-color: #4CAF50;
+}
+
+.btn-nuova {
+    background-color: green;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Storico offerte */
+#history-container {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+#history p {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.highlight {
+    font-weight: bold;
+    color: green;
+    font-size: 22px;
+}
+
+/* Responsività form input */
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Responsivo su mobile */
+@media (max-width: 600px) {
+    .btn {
+        font-size: 16px;
+        padding: 10px;
+        min-width: 120px;
+    }
+}
+
+/* Container login */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    max-width: 400px;
+    margin: auto;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px auto; /* centrato orizzontalmente + spazio sotto */
+    max-width: 180px; /* o 80% per mobile */
+    height: auto;
+}
+
+.login-form input[type="text"],
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+    .logo {
+    display: block;
+    margin: 0 auto 20px auto;  /* centra orizzontalmente + margine sotto */
+    max-width: 80%;            /* adattivo su tutti i dispositivi */
+    height: auto;
+}
+
+    .login-form input {
+        font-size: 15px;
+    }
+}

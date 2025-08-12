@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci il tuo nome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo FantAsta" class="logo">
+        <h2>Inserisci il tuo nome </h2>
+        <form action="/setname" method="post" class="login-form">
+            <input type="text" name="username" placeholder="Es. Richi u Cecchein" required>
+            <input type="submit" value="Entra nell'asta">
+        </form>
+    </div>
+</body>
+</html>

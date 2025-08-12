@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Gestione Partecipanti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    #timer {
+      font-size: 24px;
+      color: red;
+    }
+
+    .user-list-container {
+    width: 100%;
+    max-width: 600px;
+    max-height: 60vh;       /* Scroll se troppi utenti */
+    overflow-y: auto;
+    padding: 16px;
+    padding-right: 8px;
+    background-color: #ffffff;      /* Sfondo chiaro */
+    border: 1px solid #ccc;         /* Bordo grigio */
+    border-radius: 10px;            /* Angoli smussati */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Leggera ombra */
+    margin: auto;                   /* Centra orizzontalmente */
+}
+
+    .user-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .user-list li {
+      margin: 10px 0;
+    }
+
+    .user-form {
+      display: grid;
+      grid-template-columns: 1fr 100px auto auto;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .user-form input[type="number"] {
+    width: 80px;
+    margin-left: 8px;      /* aggiunto margine a sinistra */
+    padding: 6px 10px;
+    font-size: 16px;
+    text-align: center;    /* per allineamento visivo */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    }
+
+    .btn {
+      font-size: 16px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-rilancia {
+      background-color: #4CAF50;
+    }
+
+    .btn-nuova {
+      background-color: green;
+    }
+
+    .btn-elimina {
+      background-color: #f44336;
+    }
+    
+    .user-form span {
+    display: inline-block;
+    min-width: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    }
+
+    @media (max-width: 500px) {
+      .user-form span {
+        font-size: 16px;
+      }
+
+      .btn {
+        min-width: 100px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <script>
+    let currentAuctionId = null;
+
+    function updateTime() {
+      fetch('/time')
+        .then(response => response.json())
+        .then(data => {
+          const timerDiv = document.getElementById("timer");
+          timerDiv.innerText = data.remaining > 0 ?
+            "⏱ " + data.remaining + "s rimasti" : "⏱ Tempo scaduto";
+        });
+    }
+
+    function checkAuctionChange() {
+      fetch('/auction_id')
+        .then(res => res.json())
+        .then(data => {
+          if (!currentAuctionId) {
+            currentAuctionId = data.auction_id;
+          } else if (currentAuctionId !== data.auction_id) {
+            window.location.reload();
+          }
+        });
+    }
+
+    setInterval(() => {
+      updateTime();
+      checkAuctionChange();
+    }, 1000);
+
+    window.onload = updateTime;
+  </script>
+</head>
+
+<body>
+  <h1>Gestione Partecipanti</h1>
+    <div style="background: #e0f7fa; color: #006064; padding: 12px; border-radius: 6px; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px;">
+    Fai collegare gli utenti all'indirizzo: 
+    <strong id="ip-link">http://{{ ip_server }}:5001</strong>
+    <button onclick="copiaLink()" style="padding: 6px 10px; font-size: 14px; cursor: pointer;">
+      📋 Copia link
+    </button>
+</div>
+
+  <div class="top-controls">
+    <form action="/nuova_asta" method="post">
+      <input type="hidden" name="origin" value="admin">
+      <button type="submit" class="btn btn-nuova">Avvia nuova asta</button>
+    </form>
+    <div id="timer">Caricamento...</div>
+  </div>
+
+  <div class="user-list-container">
+    <ul class="user-list">
+      {% for utente, crediti in lista_utenti.items() %}
+      <li>
+        <form method="post" action="/admin_partecipanti" class="user-form">
+          <span>{{ utente }}</span>
+          <input type="number" name="nuovi_crediti" value="{{ crediti }}" min="0">
+          <input type="hidden" name="utente" value="{{ utente }}">
+          <button type="submit" class="btn btn-rilancia">Salva</button>
+          <button formaction="/elimina_utente" formmethod="post" name="utente" value="{{ utente }}" class="btn btn-elimina" onclick="return confirm('Sei sicuro di voler eliminare questo utente?')"> Elimina</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <script>
+  function copiaLink() {
+    const testo = document.getElementById("ip-link").innerText;
+    navigator.clipboard.writeText(testo).then(() => {
+      alert("Link copiato: " + testo);
+    });
+  }
+</script>
+</body>
+</html>
