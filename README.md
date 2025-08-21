@@ -13,7 +13,9 @@ Una volta installato il tutto vi basterà entrare nel  percorso della cartella `
 
 In  questo nuovo contesto vi si aprirà una pagina web che permetterà solo al battitore dell'asta di modificare alcuni parametri : elimnare partecipanti o eventualmente avviare un nuovo timer. 
 
-N.B. Nella pagina che si aprirà in automatico verrà mostrato indirizzo ip  ( che non è lo stesso della pagina attuale  ) al quale tutti gli altri parteipanti dovranno connetersi per poter partecipare .  La pagina che si avverià in automatico invece servira solo all'organizzatore dell'asta.   
+N.B.La pagina che si aprirà automaticamente (indirizzo: http://127.0.0.1:5001/admin_partecipanti) è esclusivamente per l'organizzatore dell'asta.
+
+Per tutti gli altri partecipanti, il link da condividere non è questo. Il link corretto per i partecipanti sarà visibile e fornito all'interno della pagina dell'organizzatore (e quindi sarà diverso da http://127.0.0.1:5001/admin_partecipanti) .
 
 ***Tutti i partecipanti compreso chi avvia lo script ( quindi il server ) dovranno essere connessi alla stessa rete wifi.***
 
