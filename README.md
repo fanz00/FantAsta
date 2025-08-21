@@ -1,10 +1,10 @@
 # FantAsta 
 ---
-## FantAsta è un script esegubile in locale che utilizza il router di casa e che simula il ruolo del battitore durante l'asta. 
-
+## FantAsta è un script esegubile in locale che utilizza il router di casa smimulando il ruolo del battitore durante l'asta. 
+---
 ***Vi basterà un solo computer ( per avviare il server in locale ) e che tutti gli altri partecipanti compreso chi avvia lo script siano conessi alla stessa rete WiFi.  
 Gli altri partecipanti non devono per forza utilizzare un computer ma basta anche un cellulare con un motore di ricerca : ( google chrome , safari , firefox ...)***
----
+
 # Cosa scaricare :
 Dopo aver scaricato Python sul proprio computer ( link per scaricarlo  : https://www.python.org/downloads/ ) vi basterà installare la libreria flask direttamente dal vostro terminale ( comando :  `python3 -m pip install flask` )
 # Come avviarlo  :
